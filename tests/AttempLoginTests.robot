@@ -7,7 +7,7 @@ Test Template    Attempt Login
 **Test Cases**        json_file              status_code    message
 Incorrect password    incorrect_pass.json    401            Unauthorized
 User Not Found        user_not_found.json    401            Unauthorized
-Wronng Email          wrong_email.json       412            wrong email
+Wrong Email           wrong_email.json       412            wrong email
 Empty Email           empty_email.json       412            required email
 Empty Password        empty_pass.json        412            required password
 Whithout Email        without_email.json     412            required email
