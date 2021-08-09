@@ -1,9 +1,9 @@
-*Settings*
+* Settings *
 Documentation    Signup Tests
 
 Resource    ${EXECDIR}/resources/Base.robot
 
-*Test Cases*
+* Test Cases *
 Add New User
 
     ${payload}              Get Json               signup    new_user.json
@@ -12,9 +12,9 @@ Add New User
     ${response}         POST User    ${payload}
     Status Should Be    200          ${response}
 
-Duplicate Email
+Duplicated Email
 
-    ${payload}              Get Json               signup    duplicated.json
+    ${payload}    Get Json    signup    duplicated.json
 
     POST User    ${payload}
 
