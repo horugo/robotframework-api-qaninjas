@@ -5,16 +5,16 @@ Library    OperatingSystem
 
 *Keywords*
 POST Equipo
-    [Arguments]    ${payload}    ${token}    ${image_file}
+    [Arguments]    ${equipo}    ${token}
 
     &{headers}    Create Dictionary    user_token=${token}
 
-    ${bin_image}    Get Binary File      ${EXECDIR}/resources/fixtures/equipos/thumbnails/${image_file}
+    ${bin_image}    Get Binary File      ${EXECDIR}/resources/fixtures/equipos/thumbnails/${equipo}[thumb]
     &{thumbnail}    Create Dictionary    thumbnail=${bin_image}
 
     ${response}    POST
     ...            ${base_url}/equipos    
-    ...            data=${payload}
+    ...            data=${equipo}[payload]
     ...            headers=${headers}
     ...            files=${thumbnail}
     ...            expected_status=any
