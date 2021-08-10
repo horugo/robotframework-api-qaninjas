@@ -9,14 +9,14 @@ POST Equipo
 
     &{headers}    Create Dictionary    user_token=${token}
 
-    ${bin_image}    Get Binary File      ${EXECDIR}/resources/fixtures/equipos/thumbnail/${image_file}
+    ${bin_image}    Get Binary File      ${EXECDIR}/resources/fixtures/equipos/thumbnails/${image_file}
     &{thumbnail}    Create Dictionary    thumbnail=${bin_image}
 
     ${response}    POST
     ...            ${base_url}/equipos    
     ...            data=${payload}
     ...            headers=${headers}
-    ...            file=${thumbnail}
+    ...            files=${thumbnail}
     ...            expected_status=any
 
     [return]    ${response}

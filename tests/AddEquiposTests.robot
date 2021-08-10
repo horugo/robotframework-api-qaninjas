@@ -4,8 +4,9 @@ Documentation    Add Equipos Tests
 Resource    ${EXECDIR}/resources/Base.robot
 
 *Test Cases*
-Add New Equipos
+Add New Equipo
 
-    ${payload}    Get Json    equipos    fender.json
+    ${token}    Get token    sambora@bonjovi.com    pwd123
 
-    ${response}    POST Equipo    ${payload}    token    guitarra-strato.png
+    ${payload}     Get Json       equipos       fender.json
+    ${response}    POST Equipo    ${payload}    ${token}       guitarra-strato.png
