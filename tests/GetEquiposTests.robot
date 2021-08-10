@@ -4,7 +4,7 @@ Documentation    Get Equipos Tests
 Resource    ${EXECDIR}/resources/Base.robot
 
 *Test Cases*
-Get Unique Equipo
+Get Unique
 
     #Dado que eu tenho um equipo cadastrado
     ${token}     Get token    sambora@bonjovi.com    pwd123
@@ -23,3 +23,14 @@ Get Unique Equipo
     Should Be Equal    ${equipo}[payload][name]        ${response.json()}[name]
     Should Be Equal    ${equipo}[payload][category]    ${response.json()}[category]
     Should Be Equal    ${equipo}[payload][price]       ${response.json()}[price]
+
+Equipo Not Found
+
+    ${equipo_id}    Get Mongo Id
+
+    ${token}    Get Token    sambora@bonjovi.com    pwd123
+
+    ${response}    Get Unique Equipo    ${token}    ${equipo_id}
+
+    Status Should Be    404    ${response}
+
