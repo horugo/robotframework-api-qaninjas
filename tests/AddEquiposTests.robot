@@ -6,7 +6,11 @@ Resource    ${EXECDIR}/resources/Base.robot
 *Test Cases*
 Add New Equipo
 
-    ${token}    Get token    sambora@bonjovi.com    pwd123
+    ${token}      Get token    sambora@bonjovi.com    pwd123
+    ${payload}    Get Json     equipos                fender.json
 
-    ${payload}     Get Json       equipos       fender.json
-    ${response}    POST Equipo    ${payload}    ${token}       guitarra-strato.png
+    Remove Equipo    ${payload['name']}
+
+    ${response}    POST Equipo    ${payload}    ${token}    guitarra-strato.png
+
+    Status Should Be    200    ${response}
