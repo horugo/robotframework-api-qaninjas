@@ -35,7 +35,14 @@ Equipo Not Found
     Status Should Be    404    ${response}
 
 Get Equipo List
-    ${token}    Get Token    sambora@bonjovi.com    pwd123
+    ${token}    Get Token    rita.lee@yahoo.com    pwd123
+
+    ${list}    Get Json    equipos    list.json
+
+    FOR    ${item}    IN    @{list}
+        Remove Equipo    ${item}[payload][name]
+        POST Equipo      ${item}    ${token}
+    END
 
     ${response}         Get Equipos    ${token}
     Status Should Be    200            ${response}
