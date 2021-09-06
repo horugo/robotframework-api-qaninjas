@@ -34,3 +34,11 @@ Equipo Not Found
 
     Status Should Be    404    ${response}
 
+Get Equipo List
+    ${token}    Get Token    sambora@bonjovi.com    pwd123
+
+    ${response}         Get Equipos    ${token}
+    Status Should Be    200            ${response}
+
+    ${total}          Get Length      ${response.json()}
+    Should Be True    ${total} > 0

@@ -5,9 +5,9 @@ Documentation       Implementação da Rota /signup
 POST User
     [Arguments]     ${payload}
 
-    ${response}     POST
-    ...             ${base_url}/signup      
-    ...             json=${payload}
-    ...             expected_status=any
+    ${response}    POST
+    ...            ${base_url}/signup 
+    ...            json=${payload}
+    ...            expected_status=any
 
     [return]        ${response}

@@ -21,6 +21,18 @@ POST Equipo
 
     [return]    ${response}
 
+Get Equipos
+    [Arguments]    ${token}
+
+    &{headers}    Create Dictionary    user_token=${token}
+
+    ${response}    GET
+    ...            ${base_url}/equipos
+    ...            headers=${headers}
+    ...            expected_status=any
+
+    [return]    ${response}
+
 Get Unique Equipo
     [Arguments]    ${token}    ${equipo_id}
 

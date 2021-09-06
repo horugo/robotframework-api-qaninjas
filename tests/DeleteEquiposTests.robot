@@ -17,7 +17,7 @@ Delete A Equipo
     ${response2}    Get Unique Equipo    ${token}    ${equipo_id}
 
     Status Should Be    204    ${response}
-    Status Should Be    404    ${response}
+    Status Should Be    404    ${response2}
 
 Equipo Not Found
 
